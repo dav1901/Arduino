@@ -93,11 +93,9 @@ public:
     {
         swap(1);
     }
-    void swap(uint8_t tx_pin)    //toggle between use of GPIO13/GPIO15 or GPIO3/GPIO(1/2) as RX and TX
-    {
-        uart_swap(_uart, tx_pin);
-    }
-
+    
+    void swap(uint8_t tx_pin);    //toggle between use of GPIO13/GPIO15 or GPIO3/GPIO(1/2) as RX and TX
+    
     /*
      * Toggle between use of GPIO1 and GPIO2 as TX on UART 0.
      * Note: UART 1 can't be used if GPIO2 is used with UART 0!

@@ -87,6 +87,16 @@ void HardwareSerial::setDebugOutput(bool en)
     }
 }
 
+void HardwareSerial::swap(uint8_t tx_pin)
+{
+    uart_swap(_uart, tx_pin);
+#if defined(DEBUG_ESP_PORT) && !defined(NDEBUG)
+    DEBUG_ESP_PORT.setDebugOutput(true);
+    DEBUG_ESP_PORT.println();
+    DEBUG_ESP_PORT.println("HardwareSerial pins swapped");
+#endif
+}
+
 int HardwareSerial::available(void)
 {
     int result = static_cast<int>(uart_rx_available(_uart));
